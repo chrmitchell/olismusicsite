@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/olismusicsite/static/css/main.9e7630b8.css",
+    "main.js": "/olismusicsite/static/js/main.8ef401c3.js",
+    "static/js/787.33313604.chunk.js": "/olismusicsite/static/js/787.33313604.chunk.js",
+    "static/media/brightsome-fall-25-FINAL-2k-jpg.jpg": "/olismusicsite/static/media/brightsome-fall-25-FINAL-2k-jpg.5147777c2a8041732c39.jpg",
+    "index.html": "/olismusicsite/index.html",
+    "main.9e7630b8.css.map": "/olismusicsite/static/css/main.9e7630b8.css.map",
+    "main.8ef401c3.js.map": "/olismusicsite/static/js/main.8ef401c3.js.map",
+    "787.33313604.chunk.js.map": "/olismusicsite/static/js/787.33313604.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9e7630b8.css",
+    "static/js/main.8ef401c3.js"
+  ]
+}
