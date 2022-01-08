@@ -1,22 +1,16 @@
 import logo from "./Images/brightsome-fall-25-FINAL-2k-jpg.jpg";
 import "./App.css";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Outlet,
-  Navigate,
-} from "react-router-dom";
+import { HashRouter, Routes, Route, Outlet, Navigate } from "react-router-dom";
 import analytics from "./analytics";
 
 const App = () => (
-  <BrowserRouter>
+  <HashRouter>
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/spotify" element={<SpotifyLandingPage />} />
       <Route path="*" element={<UnmatchedRoute />} />
     </Routes>
-  </BrowserRouter>
+  </HashRouter>
 );
 
 const UnmatchedRoute = () => {
