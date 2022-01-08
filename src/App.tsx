@@ -1,6 +1,12 @@
 import logo from "./images/brightsome-fall-25-FINAL-2k-jpg.jpg";
 import "./App.css";
 import { BrowserRouter, Routes, Route, Outlet, Link } from "react-router-dom";
+import ReactGA from "react-ga";
+
+ReactGA.initialize("UA-16558604");
+const url = window.location.pathname + window.location.search;
+ReactGA.pageview(url);
+console.log("reported to analytics.", url);
 
 const App = () => (
   <BrowserRouter>
