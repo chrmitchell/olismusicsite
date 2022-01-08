@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.9e7630b8.css",
-    "main.js": "/static/js/main.86121440.js",
+    "main.css": "/static/css/main.4152446f.css",
+    "main.js": "/static/js/main.3317af77.js",
     "static/js/787.33313604.chunk.js": "/static/js/787.33313604.chunk.js",
     "static/media/brightsome-fall-25-FINAL-2k-jpg.jpg": "/static/media/brightsome-fall-25-FINAL-2k-jpg.5147777c2a8041732c39.jpg",
     "index.html": "/index.html",
-    "main.9e7630b8.css.map": "/static/css/main.9e7630b8.css.map",
-    "main.86121440.js.map": "/static/js/main.86121440.js.map",
+    "main.4152446f.css.map": "/static/css/main.4152446f.css.map",
+    "main.3317af77.js.map": "/static/js/main.3317af77.js.map",
     "787.33313604.chunk.js.map": "/static/js/787.33313604.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9e7630b8.css",
-    "static/js/main.86121440.js"
+    "static/css/main.4152446f.css",
+    "static/js/main.3317af77.js"
   ]
 }
