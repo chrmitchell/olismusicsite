@@ -3,6 +3,8 @@ import "./App.css";
 import { HashRouter, Routes, Route, Outlet, Navigate } from "react-router-dom";
 import analytics from "./analytics";
 
+console.log("hashin");
+
 const App = () => (
   <HashRouter>
     <Routes>
