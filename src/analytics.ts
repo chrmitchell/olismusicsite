@@ -6,7 +6,6 @@ const config: ReactGA.InitializeOptions = {
   titleCase: true,
 };
 
-const trackingId = "UA-16558604-1";
 let isInitialized = false;
 let isActive = true;
 
@@ -35,9 +34,14 @@ const useLogEvent = (
 const analytics = {
   init: () => {
     if (isInitialized === false) {
-      ReactGA.initialize(trackingId, config);
-      console.log("analytics intialized");
-      isInitialized = true;
+      const trackingId = process.env.REACT_APP_ANALYTICS_TRACKING_ID;
+      if (!trackingId) {
+        console.error(`Analytics id unavailable`, trackingId);
+      } else {
+        ReactGA.initialize(trackingId, config);
+        console.log("analytics intialized");
+        isInitialized = true;
+      }
     } else {
       console.warn(
         "Attempting to initialize analytics after it has already been initialized."
