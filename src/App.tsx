@@ -8,6 +8,7 @@ import {
   BrowserRouter,
 } from "react-router-dom";
 import analytics from "./analytics";
+import URLs from "./urls";
 
 const App = () => (
   <BrowserRouter>
@@ -43,7 +44,18 @@ const Home = () => {
 
 const SpotifyLandingPage = () => {
   analytics.logPageView();
-  return <p>spotify stuff goes here</p>;
+  return (
+    <div style={{ padding: "2rem" }}>
+      <a
+        style={{ color: "white" }}
+        href={URLs.brightsome.spotify}
+        target="_blank"
+        rel="noreferrer"
+      >
+        Listen on Spotify
+      </a>
+    </div>
+  );
 };
 
 export default App;
