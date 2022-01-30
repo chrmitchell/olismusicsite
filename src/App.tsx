@@ -32,10 +32,15 @@ const UnmatchedRoute = () => {
 const Home = () => {
   analytics.logPageView();
 
+  const testFB = () => {
+    fbq("track", "ViewContent", { content_name: "Spotify" });
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="albumCoverLarge" alt="logo" />
+        {/* <img src={logo} className="albumCoverLarge" alt="logo" /> */}
+        gello <button onClick={testFB}>test</button>
       </header>
       <Outlet />
     </div>
