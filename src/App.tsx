@@ -1,4 +1,3 @@
-import logo from "./Images/brightsome-fall-25-FINAL-2k-jpg.jpg";
 import "./App.css";
 import {
   Routes,
@@ -8,13 +7,14 @@ import {
   BrowserRouter,
 } from "react-router-dom";
 import analytics from "./analytics";
-import URLs from "./urls";
+import AlbumCover from "./components/AlbumCover";
+import ListenLinks from "./components/ListenLinks";
+import ListenOnSpotifyButton from "./components/ListenOnSpotifyButton";
 
 const App = () => (
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/spotify" element={<SpotifyLandingPage />} />
       <Route path="*" element={<UnmatchedRoute />} />
     </Routes>
   </BrowserRouter>
@@ -32,33 +32,13 @@ const UnmatchedRoute = () => {
 const Home = () => {
   analytics.logPageView();
 
-  const testFB = () => {
-    fbq("track", "ViewContent", { content_name: "Spotify" });
-  };
-
   return (
     <div className="App">
       <header className="App-header">
-        {/* <img src={logo} className="albumCoverLarge" alt="logo" /> */}
-        gello <button onClick={testFB}>test</button>
+        <AlbumCover />
+        <ListenOnSpotifyButton />
       </header>
       <Outlet />
-    </div>
-  );
-};
-
-const SpotifyLandingPage = () => {
-  analytics.logPageView();
-  return (
-    <div style={{ padding: "2rem" }}>
-      <a
-        style={{ color: "white" }}
-        href={URLs.brightsome.spotify}
-        target="_blank"
-        rel="noreferrer"
-      >
-        Listen on Spotify
-      </a>
     </div>
   );
 };

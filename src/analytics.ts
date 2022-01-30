@@ -17,20 +17,6 @@ const usePageView = () => {
   }, []);
 };
 
-const useLogEvent = (
-  eventName: string,
-  options: { category: string; label: string }
-) => {
-  useEffect(() => {
-    console.log(`Analytics: Logging event ${eventName}.`, options);
-    ReactGA.event({
-      action: eventName,
-      category: options.category,
-      label: options.label,
-    });
-  });
-};
-
 const analytics = {
   init: () => {
     if (isInitialized === false) {
@@ -50,7 +36,17 @@ const analytics = {
   },
 
   logPageView: usePageView,
-  logEvent: useLogEvent,
+  logEvent: (
+    eventName: string,
+    options: { category: string; label: string }
+  ) => {
+    console.log(`Analytics: Logging event ${eventName}.`, options);
+    ReactGA.event({
+      action: eventName,
+      category: options.category,
+      label: options.label,
+    });
+  },
 };
 
 export default analytics;
