@@ -31,23 +31,21 @@ const SocialMediaLinks = ({
         <PlatformLogo platform={"spotify"} />
       </a>
 
-      <analytics.OutboundLink
-        eventLabel="clicked-youtube-from-socials"
-        to={URLs.brightsome.youTubePlaylist}
-        style={{ color: "white" }}
+      <a
+        href={URLs.brightsome.youTubePlaylist}
         onClick={() => onLinkClick("YouTube")}
+        style={{ color: "white" }}
       >
         <PlatformLogo platform={"youtube"} />
-      </analytics.OutboundLink>
+      </a>
 
-      <analytics.OutboundLink
-        eventLabel="clicked-instagram-from-socials"
-        to={URLs.olis.social.instagram}
-        style={{ color: "white" }}
+      <a
+        href={URLs.olis.social.instagram}
         onClick={() => onLinkClick("Instagram")}
+        style={{ color: "white" }}
       >
         <PlatformLogo platform={"instagram"} />
-      </analytics.OutboundLink>
+      </a>
     </div>
   );
 };
