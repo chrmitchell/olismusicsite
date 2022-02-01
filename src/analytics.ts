@@ -43,7 +43,9 @@ const analytics = {
   ) => {
     console.log(`Analytics: Logging event ${eventName}.`, options);
     ReactGA.event({
-      action: eventName,
+      action: `${
+        process.env.NODE_ENV === "development" ? "dev" : ""
+      }-${eventName}`,
       category: options.category,
       label: options.label,
     });
