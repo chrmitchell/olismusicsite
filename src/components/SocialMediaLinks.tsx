@@ -27,6 +27,8 @@ const SocialMediaLinks = ({
         href={URLs.brightsome.spotifyDistrokid}
         onClick={() => onLinkClick("Spotify")}
         style={{ color: "white" }}
+        target="_blank"
+        rel="noreferrer"
       >
         <PlatformLogo platform={"spotify"} />
       </a>

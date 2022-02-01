@@ -16,6 +16,8 @@ const ListenOnSpotifyButton = ({
     <a
       className={styles.noThanks}
       href={URLs.brightsome.spotifyDistrokid}
+      target="_blank"
+      rel="noreferrer"
       onClick={() => onLinkClick("Spotify")}
     >
       <div
