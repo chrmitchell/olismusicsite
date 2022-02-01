@@ -20,6 +20,9 @@ const AlbumInfo = () => {
       label: destination.toLowerCase(),
     });
     setIsNavigatingTo(destination);
+    setTimeout(() => {
+      setIsNavigatingTo(null);
+    }, 3000);
   };
 
   return (
