@@ -1,4 +1,6 @@
-import "./App.css";
+import "./App.scss";
+import brightsomeCover from "./Images/brightsome-final-1200w-good.jpg";
+
 import {
   Routes,
   Route,
@@ -8,8 +10,9 @@ import {
 } from "react-router-dom";
 import analytics from "./analytics";
 import AlbumCover from "./components/AlbumCover";
-import ListenLinks from "./components/ListenLinks";
 import ListenOnSpotifyButton from "./components/ListenOnSpotifyButton";
+import { url } from "inspector";
+import AlbumInfo from "./components/AlbumInfo";
 
 const App = () => (
   <BrowserRouter>
@@ -35,8 +38,7 @@ const Home = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <AlbumCover />
-        <ListenOnSpotifyButton />
+        <AlbumInfo />
       </header>
       <Outlet />
     </div>

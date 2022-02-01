@@ -1,0 +1,21 @@
+$color-tan: #e5d2c0;
+$color-spotify-green: #20af43;
+
+.button {
+  background-color: white;
+  color: black;
+  font-size: 1.2rem;
+  padding: 1rem 1.75rem;
+  text-transform: uppercase;
+  border-radius: 3rem;
+  margin-top: 1.5rem;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &:hover {
+    background-color: white;
+  }
+}

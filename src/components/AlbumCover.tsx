@@ -1,10 +1,11 @@
-import brightsomeCover from "../Images/brightsome-fall-25-FINAL-2k-jpg.jpg";
+import brightsomeCover from "../Images/brightsome-final-1200w-good.jpg";
+import styles from "./AlbumCover.module.scss";
 
 const AlbumCover = () => (
   <img
     src={brightsomeCover}
-    className="albumCoverLarge"
-    alt="brightsome album cover"
+    className={styles.albumCover}
+    alt="Brightsome album cover"
   />
 );
 

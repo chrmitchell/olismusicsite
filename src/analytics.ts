@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import ReactGA from "react-ga";
+import ReactGA, { OutboundLink } from "react-ga";
 
 const config: ReactGA.InitializeOptions = {
   debug: false,
@@ -36,6 +36,7 @@ const analytics = {
   },
 
   logPageView: usePageView,
+  OutboundLink: OutboundLink,
   logEvent: (
     eventName: string,
     options: { category: string; label: string }
