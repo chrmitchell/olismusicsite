@@ -1,15 +1,41 @@
-import "./ListenOnSpotifyButton.scss";
+import styles from "./ListenOnSpotifyButton.module.scss";
 import RightArrow from "./RightArrow";
-import SpotifyLogo from "./platform-logos/SpotifyLogo";
+import URLs from "../urls";
+import trackSpotifyConversion from "../utils/trackSpotifyConversion";
+import PlatformLogo from "./platform-logos/PlatformLogo";
+import { TPlatform } from "./AlbumInfo";
 
-const ListenOnSpotifyButton = () => (
-  <div className="button">
-    <SpotifyLogo />
-    <div>Listen on Spotify</div>
-    <div>
-      <RightArrow />
-    </div>
-  </div>
-);
+const ListenOnSpotifyButton = ({
+  isNavigatingTo,
+  onLinkClick,
+}: {
+  isNavigatingTo: TPlatform | null;
+  onLinkClick: (destination: TPlatform) => void;
+}) => {
+  return (
+    <a
+      className={styles.noThanks}
+      href={URLs.brightsome.spotifyDistrokid}
+      onClick={() => onLinkClick("Spotify")}
+    >
+      <div
+        className={[
+          styles.button,
+          !!isNavigatingTo ? styles.isLoading : "",
+        ].join(" ")}
+      >
+        <PlatformLogo platform={"spotify"} />
+        <div className={styles.listenWords}>
+          {!!isNavigatingTo ? (
+            <>Opening {isNavigatingTo}...</>
+          ) : (
+            <>Listen on Spotify</>
+          )}
+        </div>
+        <RightArrow vNudge={0} />
+      </div>
+    </a>
+  );
+};
 
 export default ListenOnSpotifyButton;

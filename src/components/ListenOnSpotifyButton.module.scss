@@ -1,6 +1,10 @@
 $color-tan: #e5d2c0;
 $color-spotify-green: #20af43;
 
+a.noThanks {
+  text-decoration: none;
+}
+
 .button {
   background-color: white;
   color: black;
@@ -9,11 +13,20 @@ $color-spotify-green: #20af43;
   text-transform: uppercase;
   border-radius: 3rem;
   margin-top: 1.5rem;
-  transition: background-color 0.3s;
+  transition: opacity 0.3s;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  &.isLoading {
+    opacity: 0.8;
+    color: rgba(1, 1, 1, 0);
+
+    & .listenWords {
+      color: rgba(1, 1, 1, 0.5);
+    }
+  }
 
   &:hover {
     background-color: white;

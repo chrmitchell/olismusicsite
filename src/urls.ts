@@ -1,9 +1,14 @@
 const URLs = {
   brightsome: {
-    spotify:
-      "https://open.spotify.com/album/5p1jaTHTdPAs2GBZP4OQ4Y?si=sI1jBNxcSf2xh4m39jRvLA",
+    // spotify:
+    // "https://open.spotify.com/album/5p1jaTHTdPAs2GBZP4OQ4Y?si=yzJzR1OxSA6gFUaDYTyutw",
+    spotifyDistrokid:
+      "https://open.spotify.com/album/5p1jaTHTdPAs2GBZP4OQ4Y?referral=labelaffiliate&utm_source=1011liP4oE3g&utm_medium=Indie_Distrokid&utm_campaign=labelaffiliate",
+    spotifyURI: "spotify:album:5p1jaTHTdPAs2GBZP4OQ4Y",
     youTubePlaylist:
       "https://www.youtube.com/watch?v=PqrBwgQHWCk&list=PLN3CphWGoGqG9F6Ork2DTLTMHCvtyjtsd",
+    radHeroineSpotify:
+      "https://open.spotify.com/track/2qYK9RccG9DsBQgEl5tkdy?si=070acbfefe1340ff",
   },
   olis: {
     social: {
