@@ -1,32 +1,48 @@
 import analytics from "../analytics";
 import URLs from "../urls";
-import SpotifyLogo from "./platform-logos/SpotifyLogo";
+import PlatformLogo from "./platform-logos/PlatformLogo";
 
 const SocialMediaLinks = () => {
-  const trackSpotifyClick = () => {
+  const trackConversion = () => {
     fbq("track", "ViewContent", { content_name: "spotify" });
   };
 
   return (
-    <div style={{ marginTop: "1rem" }}>
+    <div
+      style={{
+        width: "10rem",
+        display: "flex",
+        margin: ".75rem auto 0",
+        justifyContent: "space-between",
+        alignItems: "center",
+      }}
+    >
       <analytics.OutboundLink
-        onClick={trackSpotifyClick}
+        onClick={trackConversion}
         eventLabel="clicked-spotify-from-socials"
         to={URLs.brightsome.spotify}
         style={{ color: "white" }}
       >
-        {/* <a
-        onClick={async (e) => {
-          e.preventDefault();
-          await trackSpotifyClick();
-          console.log("to goo");
-        }}
-        href="http://google.com"
-      > */}
-        <SpotifyLogo />
-        {/* </a> */}
+        <PlatformLogo platform={"spotify"} />
+      </analytics.OutboundLink>
+
+      <analytics.OutboundLink
+        eventLabel="clicked-youtube-from-socials"
+        to={URLs.brightsome.youTubePlaylist}
+        style={{ color: "white" }}
+      >
+        <PlatformLogo platform={"youtube"} />
+      </analytics.OutboundLink>
+
+      <analytics.OutboundLink
+        eventLabel="clicked-instagram-from-socials"
+        to={URLs.olis.social.instagram}
+        style={{ color: "white" }}
+      >
+        <PlatformLogo platform={"instagram"} />
       </analytics.OutboundLink>
     </div>
   );
 };
+
 export default SocialMediaLinks;

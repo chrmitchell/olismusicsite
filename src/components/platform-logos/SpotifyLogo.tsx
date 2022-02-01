@@ -1,15 +1,20 @@
-const SpotifyLogo = ({ onClick }: { onClick?: () => void }) => (
+const SpotifyLogo = ({
+  size = "1.5rem",
+  vNudge = 2,
+}: {
+  size?: string;
+  vNudge?: number;
+}) => (
   <svg
-    onClick={onClick}
     className="serviceIcon jsx-3696517491"
     viewBox="0 0 24 24"
     style={{
       fill: "currentcolor",
-      width: "1.5rem",
-      height: "1.5rem",
+      width: size,
+      height: size,
       opacity: "1",
       position: "relative",
-      top: "2px",
+      top: `${vNudge}px`,
     }}
   >
     <path

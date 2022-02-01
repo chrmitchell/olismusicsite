@@ -4,6 +4,24 @@
   color: white;
   height: 100vh;
   padding: 1rem;
+  background-image: linear-gradient(
+      0deg,
+      rgba(1, 1, 1, 0.95) 0%,
+      rgba(1, 1, 1, 0.45) 100%
+    ),
+    url("/Images/avatar-crop2-1200-fair.jpg");
+  background-position: 50% 10%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  // @media only screen and (min-width: 800px) {
+  //   background-image: linear-gradient(
+  //       0deg,
+  //       rgba(1, 1, 1, 0.95) 0%,
+  //       rgba(1, 1, 1, 0.45) 100%
+  //     ),
+  //     url("/Images/avatar-crop2-1200-fair.jpg");
+  // }
 }
 
 .App-header {

@@ -2,6 +2,8 @@ const URLs = {
   brightsome: {
     spotify:
       "https://open.spotify.com/album/5p1jaTHTdPAs2GBZP4OQ4Y?si=sI1jBNxcSf2xh4m39jRvLA",
+    youTubePlaylist:
+      "https://www.youtube.com/watch?v=PqrBwgQHWCk&list=PLN3CphWGoGqG9F6Ork2DTLTMHCvtyjtsd",
   },
   olis: {
     social: {
