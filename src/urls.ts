@@ -1,7 +1,7 @@
 const URLs = {
   brightsome: {
-    // spotify:
-    // "https://open.spotify.com/album/5p1jaTHTdPAs2GBZP4OQ4Y?si=yzJzR1OxSA6gFUaDYTyutw",
+    spotify:
+      "https://open.spotify.com/album/5p1jaTHTdPAs2GBZP4OQ4Y?si=yzJzR1OxSA6gFUaDYTyutw",
     spotifyDistrokid:
       "https://open.spotify.com/album/5p1jaTHTdPAs2GBZP4OQ4Y?referral=labelaffiliate&utm_source=1011liP4oE3g&utm_medium=Indie_Distrokid&utm_campaign=labelaffiliate",
     spotifyURI: "spotify:album:5p1jaTHTdPAs2GBZP4OQ4Y",

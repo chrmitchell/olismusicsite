@@ -13,13 +13,7 @@ const ListenOnSpotifyButton = ({
   onLinkClick: (destination: TPlatform) => void;
 }) => {
   return (
-    <a
-      className={styles.noThanks}
-      href={URLs.brightsome.spotifyDistrokid}
-      target="_blank"
-      rel="noreferrer"
-      onClick={() => onLinkClick("Spotify")}
-    >
+    <a className={styles.noThanks} onClick={() => onLinkClick("Spotify")}>
       <div
         className={[
           styles.button,
@@ -31,7 +25,7 @@ const ListenOnSpotifyButton = ({
           {!!isNavigatingTo ? (
             <>Opening {isNavigatingTo}...</>
           ) : (
-            <>Listen on Spotify</>
+            <>Listen on Spotify4</>
           )}
         </div>
         <RightArrow vNudge={0} />

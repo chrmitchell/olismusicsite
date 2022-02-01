@@ -5,6 +5,7 @@ import SocialMediaLinks from "./SocialMediaLinks";
 import { useState } from "react";
 import trackSpotifyConversion from "../utils/trackSpotifyConversion";
 import analytics from "../analytics";
+import URLs from "../urls";
 
 export type TPlatform = "Spotify" | "YouTube" | "Instagram";
 
@@ -14,11 +15,18 @@ const AlbumInfo = () => {
   const handleLinkClick = (destination: TPlatform) => {
     if (!!isNavigatingTo) return;
 
-    if (destination === "Spotify") trackSpotifyConversion();
     analytics.logEvent(`clicked-${destination.toLowerCase()}`, {
       category: "clicked",
       label: destination.toLowerCase(),
     });
+
+    if (destination === "Spotify") {
+      trackSpotifyConversion();
+      //@ts-ignore
+      window.location = URLs.brightsome.spotifyDistrokid;
+      return;
+    }
+
     setIsNavigatingTo(destination);
     setTimeout(() => {
       setIsNavigatingTo(null);
