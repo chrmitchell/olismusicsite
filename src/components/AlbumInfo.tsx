@@ -27,15 +27,33 @@ const AlbumInfo = () => {
     );
   }, [adName]);
 
+  const getSongNameFromSpotifyUrl = (songLink: string) => {
+    const foundKey = Object.keys(URLs.brightsome).find((key) => {
+      // @ts-ignore
+      return URLs.brightsome[key] === songLink;
+    });
+    return foundKey?.replace("Spotify", "");
+  };
+
+  const songName = getSongNameFromSpotifyUrl(songLink);
+
   const handleLinkClick = (destination: TPlatform) => {
     if (!!isNavigatingTo) return;
 
-    if (destination === "Spotify") trackSpotifyConversion();
+    if (destination === "Spotify") {
+      console.log(songLink, songName);
 
-    analytics.logEvent(`clicked-${destination.toLowerCase()}`, {
-      category: "clicked",
-      label: destination.toLowerCase(),
-    });
+      trackSpotifyConversion();
+      analytics.logEvent(`spotify-listen`, {
+        category: songName || "unknown-somehow",
+        label: songName || "unknown-somehow",
+      });
+    } else {
+      analytics.logEvent(`clicked-${destination.toLowerCase()}`, {
+        category: "clicked",
+        label: destination.toLowerCase(),
+      });
+    }
 
     setIsNavigatingTo(destination);
     setTimeout(() => {
