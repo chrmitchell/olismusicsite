@@ -20,7 +20,6 @@ const AlbumInfo = () => {
   const adName: string | undefined = params["utm_content"];
 
   useEffect(() => {
-    console.log(adName);
     setSongLink(
       adName && adName.includes("tiny")
         ? URLs.brightsome.tinyStreetFeelsSpotify
