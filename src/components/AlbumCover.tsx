@@ -1,5 +1,4 @@
 import brightsomeCover from "../Images/brightsome-final-1200w-good.jpg";
-import URLs from "../urls";
 import styles from "./AlbumCover.module.scss";
 import { TPlatform } from "./AlbumInfo";
 

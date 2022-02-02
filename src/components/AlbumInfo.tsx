@@ -30,9 +30,7 @@ const AlbumInfo = () => {
   const handleLinkClick = (destination: TPlatform) => {
     if (!!isNavigatingTo) return;
 
-    if (destination === "Spotify") {
-      trackSpotifyConversion();
-    }
+    if (destination === "Spotify") trackSpotifyConversion();
 
     analytics.logEvent(`clicked-${destination.toLowerCase()}`, {
       category: "clicked",

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import ReactGA, { OutboundLink } from "react-ga";
+import devLog from "./utils/devLog";
 
 const config: ReactGA.InitializeOptions = {
   debug: false,
@@ -25,7 +26,7 @@ const analytics = {
         console.error(`Analytics id unavailable`, trackingId);
       } else {
         ReactGA.initialize(trackingId, config);
-        console.log("analytics intialized");
+        devLog("analytics intialized");
         isInitialized = true;
       }
     } else {
@@ -41,7 +42,8 @@ const analytics = {
     eventName: string,
     options: { category: string; label: string }
   ) => {
-    console.log(`Analytics: Logging event ${eventName}.`, options);
+    devLog(`Analytics: Logging event ${eventName}.`, options);
+
     ReactGA.event({
       action: `${
         process.env.NODE_ENV === "development" ? "dev-" : ""

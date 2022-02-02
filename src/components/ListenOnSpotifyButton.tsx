@@ -1,6 +1,5 @@
 import styles from "./ListenOnSpotifyButton.module.scss";
 import RightArrow from "./RightArrow";
-import URLs from "../urls";
 import PlatformLogo from "./platform-logos/PlatformLogo";
 import { TPlatform } from "./AlbumInfo";
 
