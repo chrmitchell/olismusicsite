@@ -12,7 +12,7 @@ let isActive = true;
 const usePageView = () => {
   useEffect(() => {
     const url = window.location.pathname + window.location.search;
-    console.log(`Analytics: Logging page view for ${url}`);
+    // console.log(`Analytics: Logging page view for ${url}`);
     ReactGA.pageview(url);
   }, []);
 };

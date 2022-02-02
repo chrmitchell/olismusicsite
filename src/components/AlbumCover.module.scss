@@ -1,6 +1,9 @@
+@import "../styles/clickable";
+
 .albumCover {
+  @extend %clickable;
   width: 100%;
   display: block;
-  // box-shadow: 0 0 10px 0 black;
-  //   border-radius: 4px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+  // border-radius: 4px;
 }

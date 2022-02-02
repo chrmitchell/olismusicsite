@@ -1,0 +1,10 @@
+%clickable {
+  transition: transform 0.3s, opacity 0.3s;
+  cursor: pointer;
+  opacity: 0.95;
+
+  &:hover {
+    transform: scale(1.007);
+    opacity: 1;
+  }
+}

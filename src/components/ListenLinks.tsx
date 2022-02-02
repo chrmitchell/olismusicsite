@@ -3,7 +3,7 @@ import analytics from "../analytics";
 import URLs from "../urls";
 
 const links = [
-  { displayName: "Spotify", url: URLs.brightsome.spotifyDistrokid },
+  { displayName: "Spotify", url: URLs.brightsome.radHeroineSpotify },
 ];
 
 const ListenLinks = () => {
