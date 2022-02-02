@@ -21,7 +21,7 @@ const AlbumInfo = () => {
 
   useEffect(() => {
     setSongLink(
-      adName && adName.includes("tiny")
+      adName && adName.toLowerCase().includes("tiny")
         ? URLs.brightsome.tinyStreetFeelsSpotify
         : URLs.brightsome.radHeroineSpotify
     );
