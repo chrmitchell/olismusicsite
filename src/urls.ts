@@ -21,6 +21,7 @@ const URLs = {
       appleMusic: "https://music.apple.com/us/artist/olis/1592365013",
       soundCloud: "https://soundcloud.com/olismusic?id=1502701",
       pandora: "https://www.pandora.com/artist/olis/ARb4d5VfXnvpmZc",
+      facebook: "https://www.facebook.com/Olisforears",
     },
   },
 };

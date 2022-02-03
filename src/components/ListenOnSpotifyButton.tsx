@@ -1,7 +1,7 @@
 import styles from "./ListenOnSpotifyButton.module.scss";
 import RightArrow from "./RightArrow";
 import PlatformLogo from "./platform-logos/PlatformLogo";
-import { TPlatform } from "./AlbumInfo";
+import { TPlatform } from "../types/TPlatform";
 
 const ListenOnSpotifyButton = ({
   isNavigatingTo,
@@ -22,7 +22,7 @@ const ListenOnSpotifyButton = ({
         " "
       )}
     >
-      <PlatformLogo platform={"spotify"} />
+      <PlatformLogo platform={"Spotify"} />
       <div className={styles.listenWords}>
         {!!isNavigatingTo ? (
           <>Opening {isNavigatingTo}...</>

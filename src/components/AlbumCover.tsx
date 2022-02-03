@@ -1,6 +1,6 @@
 import brightsomeCover from "../Images/brightsome-final-1200w-good.jpg";
+import { TPlatform } from "../types/TPlatform";
 import styles from "./AlbumCover.module.scss";
-import { TPlatform } from "./AlbumInfo";
 
 const AlbumCover = ({
   onClick,

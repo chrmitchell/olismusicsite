@@ -1,6 +1,6 @@
 import classNames from "classnames";
+import { TPlatform } from "../types/TPlatform";
 import URLs from "../urls";
-import { TPlatform } from "./AlbumInfo";
 import PlatformLogo from "./platform-logos/PlatformLogo";
 import styles from "./SocialMediaLinks.module.scss";
 
@@ -22,16 +22,7 @@ const SocialMediaLinks = ({
       className={styles.link}
       title="Spotify"
     >
-      <PlatformLogo platform="spotify" />
-    </a>
-
-    <a
-      href={URLs.brightsome.youTubePlaylist}
-      onClick={() => onLinkClick("YouTube")}
-      className={styles.link}
-      title="YouTube"
-    >
-      <PlatformLogo platform={"youtube"} />
+      <PlatformLogo platform="Spotify" />
     </a>
 
     <a
@@ -40,7 +31,24 @@ const SocialMediaLinks = ({
       className={styles.link}
       title="Instagram"
     >
-      <PlatformLogo platform={"instagram"} />
+      <PlatformLogo platform={"Instagram"} />
+    </a>
+
+    <a
+      href={URLs.brightsome.youTubePlaylist}
+      onClick={() => onLinkClick("YouTube")}
+      className={styles.link}
+      title="YouTube"
+    >
+      <PlatformLogo platform={"YouTube"} />
+    </a>
+    <a
+      href={URLs.olis.social.facebook}
+      onClick={() => onLinkClick("Facebook")}
+      className={styles.link}
+      title="Facebook"
+    >
+      <PlatformLogo platform="Facebook" />
     </a>
   </div>
 );

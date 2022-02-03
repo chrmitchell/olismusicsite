@@ -7,8 +7,8 @@ import trackSpotifyConversion from "../utils/trackSpotifyConversion";
 import analytics from "../analytics";
 import URLs from "../urls";
 import useQueryParams from "../utils/hooks/useQueryParams";
-
-export type TPlatform = "Spotify" | "YouTube" | "Instagram";
+import { TPlatform } from "../types/TPlatform";
+import getSongNameFromSpotifyUrl from "../utils/getSongNameFromSpotifyURL";
 
 const AlbumInfo = () => {
   const [isNavigatingTo, setIsNavigatingTo] = useState<TPlatform | null>(null);
@@ -27,20 +27,12 @@ const AlbumInfo = () => {
     );
   }, [adName]);
 
-  const getSongNameFromSpotifyUrl = (songLink: string) => {
-    const foundKey = Object.keys(URLs.brightsome).find((key) => {
-      // @ts-ignore
-      return URLs.brightsome[key] === songLink;
-    });
-    return foundKey?.replace("Spotify", "");
-  };
-
-  const songName = getSongNameFromSpotifyUrl(songLink);
-
   const handleLinkClick = (destination: TPlatform) => {
     if (!!isNavigatingTo) return;
 
     if (destination === "Spotify") {
+      const songName = getSongNameFromSpotifyUrl(songLink);
+
       console.log(songLink, songName);
 
       trackSpotifyConversion();

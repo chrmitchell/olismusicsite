@@ -1,5 +1,5 @@
+import { TPlatform } from "../types/TPlatform";
 import URLs from "../urls";
-import { TPlatform } from "./AlbumInfo";
 import PlatformLogo from "./platform-logos/PlatformLogo";
 import styles from "./SocialMediaLinks.module.scss";
 

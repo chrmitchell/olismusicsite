@@ -18,6 +18,9 @@ const usePageView = () => {
   }, []);
 };
 
+const prependDevIfNeeded = (s: string) =>
+  `${process.env.NODE_ENV === "development" ? "dev-" : ""}${s}`;
+
 const analytics = {
   init: () => {
     if (isInitialized === false) {
@@ -45,11 +48,9 @@ const analytics = {
     devLog(`Analytics: Logging event ${eventName}.`, options);
 
     ReactGA.event({
-      action: `${
-        process.env.NODE_ENV === "development" ? "dev-" : ""
-      }${eventName}`,
-      category: options.category,
-      label: options.label,
+      action: prependDevIfNeeded(eventName),
+      category: prependDevIfNeeded(options.category),
+      label: prependDevIfNeeded(options.label),
     });
   },
 };
