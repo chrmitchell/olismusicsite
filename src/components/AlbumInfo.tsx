@@ -1,7 +1,7 @@
 import AlbumCover from "./AlbumCover";
 import ListenOnSpotifyButton from "./ListenOnSpotifyButton";
 import styles from "./AlbumInfo.module.scss";
-import SocialMediaLinks from "./SocialMediaLinks";
+import SocialMediaLinks from "./SocialMediaLinks/SocialMediaLinks";
 import { useEffect, useState } from "react";
 import trackSpotifyConversion from "../utils/trackSpotifyConversion";
 import analytics from "../analytics";
