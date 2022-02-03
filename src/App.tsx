@@ -1,23 +1,15 @@
 import "./App.scss";
-import brightsomeCover from "./Images/brightsome-final-1200w-good.jpg";
 
-import {
-  Routes,
-  Route,
-  Outlet,
-  Navigate,
-  BrowserRouter,
-} from "react-router-dom";
+import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 import analytics from "./analytics";
-import AlbumCover from "./components/AlbumCover";
-import ListenOnSpotifyButton from "./components/ListenOnSpotifyButton";
-import { url } from "inspector";
-import AlbumInfo from "./components/AlbumInfo";
+import NoojPage from "./Pages/NoojPage";
+import HomePage from "./Pages/HomePage";
 
 const App = () => (
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<HomePage />} />
+      <Route path="/nooje" element={<NoojPage />} />
       <Route path="*" element={<UnmatchedRoute />} />
     </Routes>
   </BrowserRouter>
@@ -30,19 +22,6 @@ const UnmatchedRoute = () => {
   });
 
   return <Navigate to="/" />;
-};
-
-const Home = () => {
-  analytics.logPageView();
-
-  return (
-    <div className="App">
-      <header className="App-header">
-        <AlbumInfo />
-      </header>
-      <Outlet />
-    </div>
-  );
 };
 
 export default App;

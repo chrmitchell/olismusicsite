@@ -1,0 +1,19 @@
+.noojePage {
+  color: white;
+  background-image: url("../Images/pixels.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  animation: colorz 20s infinite linear;
+}
+
+@keyframes colorz {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}

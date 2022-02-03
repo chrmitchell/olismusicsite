@@ -14,12 +14,22 @@ const usePageView = () => {
   useEffect(() => {
     const url = window.location.pathname + window.location.search;
     // console.log(`Analytics: Logging page view for ${url}`);
-    ReactGA.pageview(url);
+
+    if (
+      process.env.NODE_ENV !== "development" &&
+      process.env.NODE_ENV === "test"
+    ) {
+      ReactGA.pageview(url);
+    }
   }, []);
 };
 
 const prependDevIfNeeded = (s: string) =>
-  `${process.env.NODE_ENV === "development" ? "dev-" : ""}${s}`;
+  `${
+    process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test"
+      ? "dev-"
+      : ""
+  }${s}`;
 
 const analytics = {
   init: () => {
