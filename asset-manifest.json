@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/static/css/main.6dc4daf9.css",
-    "main.js": "/static/js/main.a64cdcda.js",
+    "main.js": "/static/js/main.ec4fecf7.js",
     "static/js/787.8cb13f37.chunk.js": "/static/js/787.8cb13f37.chunk.js",
     "static/media/pixels.jpeg": "/static/media/pixels.b3ad98cd184982146075.jpeg",
     "static/media/brightsome-final-1200w-good.jpg": "/static/media/brightsome-final-1200w-good.de2f3036030ad050b279.jpg",
     "static/media/avatar-crop2-1200-fair.jpg": "/static/media/avatar-crop2-1200-fair.72debdd4e673492c4b25.jpg",
     "index.html": "/index.html",
     "main.6dc4daf9.css.map": "/static/css/main.6dc4daf9.css.map",
-    "main.a64cdcda.js.map": "/static/js/main.a64cdcda.js.map",
+    "main.ec4fecf7.js.map": "/static/js/main.ec4fecf7.js.map",
     "787.8cb13f37.chunk.js.map": "/static/js/787.8cb13f37.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6dc4daf9.css",
-    "static/js/main.a64cdcda.js"
+    "static/js/main.ec4fecf7.js"
   ]
 }
