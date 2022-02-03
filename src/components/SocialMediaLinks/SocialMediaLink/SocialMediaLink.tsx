@@ -10,11 +10,11 @@ const SocialMediaLink = ({
 }: {
   spotifySongLink: string;
   platform: TPlatform;
-  onClick: (platform: TPlatform) => void;
+  onClick: (platform: TPlatform, typeClicked: "button" | "icon") => void;
 }) => (
   <a
     href={platform === "Spotify" ? spotifySongLink : URLs.olis.social[platform]}
-    onClick={() => onClick(platform)}
+    onClick={() => onClick(platform, "icon")}
     className={styles.link}
     title={platform}
   >

@@ -6,10 +6,13 @@ const AlbumCover = ({
   onClick,
   songLink,
 }: {
-  onClick: (destination: TPlatform) => void;
+  onClick: (
+    destination: TPlatform,
+    typeClicked: "button" | "icon" | "cover"
+  ) => void;
   songLink: string | null;
 }) => (
-  <a href={songLink || ""} onClick={() => onClick("Spotify")}>
+  <a href={songLink || ""} onClick={() => onClick("Spotify", "cover")}>
     <img
       src={brightsomeCover}
       className={styles.albumCover}

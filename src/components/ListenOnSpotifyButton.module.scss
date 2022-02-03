@@ -24,9 +24,23 @@ a.noThanks {
   &.isLoading {
     opacity: 0.8;
     color: rgba(1, 1, 1, 0);
+    cursor: default;
 
     & .listenWords {
       color: rgba(1, 1, 1, 0.5);
+    }
+
+    &:hover {
+      transform: scale(1);
+    }
+  }
+
+  &.isDisabled {
+    opacity: 0.15;
+    // background: rgba(0, 0, 0, 0.3);
+    cursor: default;
+    &:hover {
+      transform: scale(1);
     }
   }
 

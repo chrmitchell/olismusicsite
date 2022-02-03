@@ -10,7 +10,10 @@ const SocialMediaLinks = ({
   isNavigatingTo,
   songLink,
 }: {
-  onLinkClick: (destination: TPlatform) => void;
+  onLinkClick: (
+    destination: TPlatform,
+    typeClicked: "button" | "icon" | "cover"
+  ) => void;
   isNavigatingTo: TPlatform | null;
   songLink: string;
 }) => (

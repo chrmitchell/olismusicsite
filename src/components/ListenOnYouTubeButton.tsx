@@ -2,34 +2,33 @@ import styles from "./ListenOnSpotifyButton.module.scss";
 import RightArrow from "./RightArrow";
 import PlatformLogo from "./platform-logos/PlatformLogo";
 import { TPlatform } from "../types/TPlatform";
+import URLs from "../urls";
 
-const ListenOnSpotifyButton = ({
+const ListenOnYouTubeButton = ({
   isNavigatingTo,
   onLinkClick,
-  songLink,
 }: {
   isNavigatingTo: TPlatform | null;
   onLinkClick: (destination: TPlatform, typeClicked: "button" | "icon") => void;
-  songLink: string;
 }) => (
   <a
     className={styles.noThanks}
-    href={songLink}
-    onClick={() => onLinkClick("Spotify", "button")}
+    href={URLs.brightsome.youTubePlaylist}
+    onClick={() => onLinkClick("YouTube", "button")}
   >
     <div
       className={[
         styles.button,
-        !!isNavigatingTo ? styles.isLoading : "",
-        !!isNavigatingTo && isNavigatingTo !== "Spotify" && styles.isDisabled,
+        isNavigatingTo === "YouTube" ? styles.isLoading : "",
+        !!isNavigatingTo && isNavigatingTo !== "YouTube" && styles.isDisabled,
       ].join(" ")}
     >
-      <PlatformLogo platform={"Spotify"} />
+      <PlatformLogo platform={"YouTube"} />
       <div className={styles.listenWords}>
-        {isNavigatingTo === "Spotify" ? (
+        {isNavigatingTo === "YouTube" ? (
           <>Opening {isNavigatingTo}...</>
         ) : (
-          <>Listen on Spotify</>
+          <>Listen on YouTube</>
         )}
       </div>
       <RightArrow vNudge={0} />
@@ -37,4 +36,4 @@ const ListenOnSpotifyButton = ({
   </a>
 );
 
-export default ListenOnSpotifyButton;
+export default ListenOnYouTubeButton;
