@@ -1,7 +1,7 @@
 @import "../styles/clickable";
 
 .albumCover {
-  @extend %clickable;
+  // @extend %clickable;
   width: 100%;
   display: block;
   box-shadow: 3px 3px 30px rgba(0, 0, 0, 0.4);

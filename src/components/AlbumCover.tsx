@@ -12,13 +12,13 @@ const AlbumCover = ({
   ) => void;
   songLink: string | null;
 }) => (
-  <a href={songLink || ""} onClick={() => onClick("Spotify", "cover")}>
-    <img
-      src={brightsomeCover}
-      className={styles.albumCover}
-      alt="Brightsome album cover"
-    />
-  </a>
+  // <a href={songLink || ""} onClick={() => onClick("Spotify", "cover")}>
+  <img
+    src={brightsomeCover}
+    className={styles.albumCover}
+    alt="Brightsome album cover"
+  />
+  // </a>
 );
 
 export default AlbumCover;

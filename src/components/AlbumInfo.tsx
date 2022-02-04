@@ -74,7 +74,7 @@ const AlbumInfo = () => {
       <AlbumCover onClick={handleLinkClick} songLink={songLink} />
       <div className={styles.deets}>
         <div className={styles.title}>Brightsome</div>
-        <div className={styles.artist}>by olis</div>
+        <div className={styles.artist}>The new full-length album by Olis</div>
         <SocialMediaLinks
           onLinkClick={handleLinkClick}
           isNavigatingTo={isNavigatingTo}
