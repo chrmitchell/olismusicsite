@@ -75,22 +75,23 @@ const AlbumInfo = () => {
       <div className={styles.deets}>
         <div className={styles.title}>Brightsome</div>
         <div className={styles.artist}>The new full-length album by Olis</div>
-        <SocialMediaLinks
-          onLinkClick={handleLinkClick}
+
+        <ListenOnSpotifyButton
           isNavigatingTo={isNavigatingTo}
+          onLinkClick={handleLinkClick}
           songLink={songLink}
+        />
+
+        <ListenOnYouTubeButton
+          isNavigatingTo={isNavigatingTo}
+          onLinkClick={handleLinkClick}
         />
       </div>
 
-      <ListenOnSpotifyButton
-        isNavigatingTo={isNavigatingTo}
+      <SocialMediaLinks
         onLinkClick={handleLinkClick}
+        isNavigatingTo={isNavigatingTo}
         songLink={songLink}
-      />
-
-      <ListenOnYouTubeButton
-        isNavigatingTo={isNavigatingTo}
-        onLinkClick={handleLinkClick}
       />
     </div>
   );

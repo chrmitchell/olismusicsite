@@ -3,7 +3,12 @@ import { TPlatform } from "../../types/TPlatform";
 import SocialMediaLink from "./SocialMediaLink/SocialMediaLink";
 import styles from "./SocialMediaLinks.module.scss";
 
-const platforms: TPlatform[] = ["Spotify", "Instagram", "YouTube", "Facebook"];
+const platforms: TPlatform[] = [
+  // "Spotify",
+  "Instagram",
+  // "YouTube",
+  "Facebook",
+];
 
 const SocialMediaLinks = ({
   onLinkClick,
