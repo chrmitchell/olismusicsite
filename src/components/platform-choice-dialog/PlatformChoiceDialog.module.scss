@@ -1,0 +1,47 @@
+$highlight-opacity: 0.2;
+
+.container {
+  padding: 1rem;
+  max-width: 31.3rem;
+  margin: 0 auto;
+}
+
+.question {
+  font-size: 1.25rem;
+}
+
+.choices {
+  margin: 3rem 0;
+}
+
+.choice {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, $highlight-opacity);
+  cursor: pointer;
+  transition: background-color 200ms, border-color 200ms;
+
+  color: white;
+  text-decoration: none;
+
+  &:hover {
+    background: rgba(255, 255, 255, $highlight-opacity);
+    border-color: transparent;
+  }
+
+  &:active {
+    background: white;
+    color: black;
+  }
+
+  &:last-of-type {
+    border-bottom: 1px solid rgba(255, 255, 255, $highlight-opacity);
+
+    &:hover {
+      border-color: transparent;
+    }
+  }
+}

@@ -3,15 +3,17 @@ import "./App.scss";
 import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 import analytics from "./analytics";
 import NoojPage from "./Pages/NoojPage";
-import HomePage from "./Pages/HomePage";
+import ListenLinksPage from "./Pages/ListenLinksPage";
+import Tray from "./components/Tray/Tray";
 
 const App = () => (
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<HomePage />} />
+      <Route path="/" element={<ListenLinksPage />} />
       <Route path="/nooje" element={<NoojPage />} />
       <Route path="*" element={<UnmatchedRoute />} />
     </Routes>
+    <Tray />
   </BrowserRouter>
 );
 

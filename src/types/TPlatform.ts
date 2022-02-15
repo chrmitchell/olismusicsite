@@ -1,1 +1,7 @@
-export type TPlatform = "Spotify" | "YouTube" | "Instagram" | "Facebook";
+export type TPlatform =
+  | "Spotify"
+  | "YouTube"
+  | "Instagram"
+  | "Facebook"
+  | "Soundcloud"
+  | "Bandcamp";

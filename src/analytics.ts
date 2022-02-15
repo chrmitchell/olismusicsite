@@ -55,7 +55,10 @@ const analytics = {
     eventName: string,
     options: { category: string; label: string }
   ) => {
-    devLog(`Analytics: Logging event ${eventName}.`, options);
+    devLog(
+      `Analytics: Logging event ${prependDevIfNeeded(eventName)}.`,
+      options
+    );
 
     ReactGA.event({
       action: prependDevIfNeeded(eventName),

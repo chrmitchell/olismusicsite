@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import listenLinksPageStore from "../../Pages/listenLinksPageStore";
 import { TPlatform } from "../../types/TPlatform";
 import SocialMediaLink from "./SocialMediaLink/SocialMediaLink";
 import styles from "./SocialMediaLinks.module.scss";
@@ -10,27 +11,20 @@ const platforms: TPlatform[] = [
   "Facebook",
 ];
 
-const SocialMediaLinks = ({
-  onLinkClick,
-  isNavigatingTo,
-  songLink,
-}: {
-  onLinkClick: (
-    destination: TPlatform,
-    typeClicked: "button" | "icon" | "cover"
-  ) => void;
-  isNavigatingTo: TPlatform | null;
-  songLink: string;
-}) => (
+const SocialMediaLinks = () => (
   <div
-    className={classNames(styles.links, !!isNavigatingTo && styles.isDisabled)}
+    className={classNames(
+      styles.links,
+      !!listenLinksPageStore.platformNavigatingTo && styles.isDisabled
+    )}
   >
     {platforms.map((platform) => (
       <SocialMediaLink
         key={platform}
         platform={platform}
-        spotifySongLink={songLink}
-        onClick={onLinkClick}
+        onClick={() =>
+          listenLinksPageStore.handleListenLinkClick(platform, "icon")
+        }
       />
     ))}
   </div>

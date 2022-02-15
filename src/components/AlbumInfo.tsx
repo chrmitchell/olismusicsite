@@ -1,82 +1,42 @@
 import AlbumCover from "./AlbumCover";
-import ListenOnSpotifyButton from "./ListenOnSpotifyButton";
 import styles from "./AlbumInfo.module.scss";
 import SocialMediaLinks from "./SocialMediaLinks/SocialMediaLinks";
-import { useEffect, useState } from "react";
-import trackSpotifyConversion from "../utils/trackSpotifyConversion";
-import analytics from "../analytics";
+import { useEffect } from "react";
 import URLs from "../urls";
 import useQueryParams from "../utils/hooks/useQueryParams";
-import { TPlatform } from "../types/TPlatform";
-import getSongNameFromSpotifyUrl from "../utils/getSongNameFromSpotifyURL";
-import ListenOnYouTubeButton from "./ListenOnYouTubeButton";
-import devLog from "../utils/devLog";
+import ListenNowButton from "./ListenNowButton";
+import listenLinksPageStore from "../Pages/listenLinksPageStore";
+import { observer } from "mobx-react";
 
-const AlbumInfo = () => {
-  const [isNavigatingTo, setIsNavigatingTo] = useState<TPlatform | null>(null);
-  const [songLink, setSongLink] = useState<string>(
-    URLs.brightsome.radHeroineSpotify
-  );
+const AlbumInfo = observer(() => {
+  const isNavigatingTo = listenLinksPageStore.platformNavigatingTo;
+  const songLink = listenLinksPageStore.spotifySongLink;
 
   let params = useQueryParams().object;
-  const adName: string | undefined = params["utm_content"];
+  const adName: string | null = params["utm_content"];
 
   useEffect(() => {
-    setSongLink(
+    listenLinksPageStore.spotifySongLink =
       adName && adName.toLowerCase().includes("tiny")
         ? URLs.brightsome.tinyStreetFeelsSpotify
-        : URLs.brightsome.radHeroineSpotify
-    );
+        : URLs.brightsome.radHeroineSpotify;
+    listenLinksPageStore.adName = adName;
   }, [adName]);
-
-  const handleLinkClick = (
-    destination: TPlatform,
-    typeClicked: "button" | "icon" | "cover"
-  ) => {
-    if (!!isNavigatingTo) return;
-
-    if (destination === "Spotify") {
-      const songName = getSongNameFromSpotifyUrl(songLink);
-      devLog(songLink, songName);
-
-      trackSpotifyConversion();
-
-      analytics.logEvent(`spotify-listen`, {
-        category: songName || `unknown-from-${adName}`,
-        label: songName || `unknown-from-${adName}`,
-      });
-
-      analytics.logEvent(
-        `clicked-${destination.toLowerCase()}-${typeClicked}`,
-        {
-          category: "clicked",
-          label: destination.toLowerCase(),
-        }
-      );
-    } else {
-      analytics.logEvent(
-        `clicked-${destination.toLowerCase()}-${typeClicked}`,
-        {
-          category: "clicked",
-          label: destination.toLowerCase(),
-        }
-      );
-    }
-
-    setIsNavigatingTo(destination);
-    setTimeout(() => {
-      setIsNavigatingTo(null);
-    }, 3000);
-  };
 
   return (
     <div>
-      <AlbumCover onClick={handleLinkClick} songLink={songLink} />
+      <AlbumCover
+        onClick={listenLinksPageStore.showPlatformChoiceDialog}
+        songLink={songLink}
+      />
       <div className={styles.deets}>
         <div className={styles.title}>Brightsome</div>
         <div className={styles.artist}>The new full-length album by Olis</div>
 
-        <ListenOnSpotifyButton
+        <ListenNowButton
+          onClick={listenLinksPageStore.showPlatformChoiceDialog}
+        />
+        {/* <ListenOnSpotifyButton
           isNavigatingTo={isNavigatingTo}
           onLinkClick={handleLinkClick}
           songLink={songLink}
@@ -85,16 +45,12 @@ const AlbumInfo = () => {
         <ListenOnYouTubeButton
           isNavigatingTo={isNavigatingTo}
           onLinkClick={handleLinkClick}
-        />
+        /> */}
       </div>
 
-      <SocialMediaLinks
-        onLinkClick={handleLinkClick}
-        isNavigatingTo={isNavigatingTo}
-        songLink={songLink}
-      />
+      <SocialMediaLinks />
     </div>
   );
-};
+});
 
 export default AlbumInfo;

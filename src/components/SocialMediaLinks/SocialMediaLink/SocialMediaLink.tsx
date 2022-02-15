@@ -1,19 +1,24 @@
+import listenLinksPageStore from "../../../Pages/listenLinksPageStore";
 import { TPlatform } from "../../../types/TPlatform";
 import URLs from "../../../urls";
 import PlatformLogo from "../../platform-logos/PlatformLogo";
 import styles from "./SocialMediaLink.module.scss";
 
 const SocialMediaLink = ({
-  spotifySongLink,
   platform,
   onClick,
 }: {
-  spotifySongLink: string;
   platform: TPlatform;
   onClick: (platform: TPlatform, typeClicked: "button" | "icon") => void;
 }) => (
   <a
-    href={platform === "Spotify" ? spotifySongLink : URLs.olis.social[platform]}
+    href={
+      platform === "Spotify"
+        ? listenLinksPageStore.spotifySongLink
+        : URLs.olis.social[platform]
+    }
+    target="_blank"
+    rel="noreferrer"
     onClick={() => onClick(platform, "icon")}
     className={styles.link}
     title={platform}
