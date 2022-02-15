@@ -66,6 +66,10 @@ const analytics = {
       label: prependDevIfNeeded(options.label),
     });
   },
+
+  trackFBEvent: (eventName: "ViewContent", contentName: "spotify") => {
+    fbq("track", eventName, { content_name: contentName });
+  },
 };
 
 export default analytics;

@@ -5,7 +5,6 @@ import PlatformChoiceDialog from "../components/platform-choice-dialog/PlatformC
 import URLs from "../urls";
 import getSongNameFromSpotifyUrl from "../utils/getSongNameFromSpotifyURL";
 import devLog from "../utils/devLog";
-import trackSpotifyConversion from "../utils/trackSpotifyConversion";
 import analytics from "../analytics";
 
 class ListenLinksPageStore {
@@ -35,7 +34,7 @@ class ListenLinksPageStore {
       const songName = getSongNameFromSpotifyUrl(this.spotifySongLink);
       devLog(this.spotifySongLink, songName);
 
-      trackSpotifyConversion();
+      analytics.trackFBEvent("ViewContent", "spotify");
 
       analytics.logEvent(`spotify-listen`, {
         category: songName || `unknown-from-${this.adName}`,
