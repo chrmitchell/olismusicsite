@@ -17,8 +17,13 @@ class ListenLinksPageStore {
   adName: string | null = null;
   spotifySongLink: string = URLs.brightsome.radHeroineSpotify;
 
-  showPlatformChoiceDialog = () =>
+  showPlatformChoiceDialog = (from: "cover" | "listen-now-button") => {
+    analytics.logEvent("opened-choice-tray", {
+      category: "opened-choice-tray",
+      label: `from-${from}`,
+    });
     trayStore.showContents(<PlatformChoiceDialog />);
+  };
 
   handleListenLinkClick = (
     destination: TPlatform,

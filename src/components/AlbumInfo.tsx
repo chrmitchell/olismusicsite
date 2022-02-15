@@ -26,7 +26,7 @@ const AlbumInfo = observer(() => {
   return (
     <div>
       <AlbumCover
-        onClick={listenLinksPageStore.showPlatformChoiceDialog}
+        onClick={() => listenLinksPageStore.showPlatformChoiceDialog("cover")}
         songLink={songLink}
       />
       <div className={styles.deets}>
@@ -34,7 +34,9 @@ const AlbumInfo = observer(() => {
         <div className={styles.artist}>The new full-length album by Olis</div>
 
         <ListenNowButton
-          onClick={listenLinksPageStore.showPlatformChoiceDialog}
+          onClick={() =>
+            listenLinksPageStore.showPlatformChoiceDialog("listen-now-button")
+          }
         />
         {/* <ListenOnSpotifyButton
           isNavigatingTo={isNavigatingTo}
