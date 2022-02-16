@@ -7,7 +7,7 @@ const ListenNowButton = observer(({ onClick }: { onClick: () => void }) => {
   const navTo = listenLinksPageStore.platformNavigatingTo;
 
   return (
-    <div
+    <button
       className={[
         styles.button,
         !!navTo ? styles.isLoading : "",
@@ -20,7 +20,7 @@ const ListenNowButton = observer(({ onClick }: { onClick: () => void }) => {
         {!!navTo ? <>Opening {navTo}...</> : <>Listen now</>}
       </div>
       <RightArrow vNudge={0} />
-    </div>
+    </button>
   );
 });
 

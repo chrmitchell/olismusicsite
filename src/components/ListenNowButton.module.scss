@@ -9,6 +9,12 @@ a.noThanks {
 
 .button {
   @extend %clickable;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
   background-color: white;
   color: black;
   font-size: 1.2rem;
@@ -18,6 +24,7 @@ a.noThanks {
   margin-top: 1.5rem;
   transition: opacity 0.3s, transform 0.3s;
   display: flex;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
 

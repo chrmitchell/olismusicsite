@@ -1,5 +1,3 @@
-import "./App.scss";
-
 import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 import analytics from "./analytics";
 import NoojPage from "./Pages/NoojPage";

@@ -32,24 +32,13 @@ const AlbumInfo = observer(() => {
       <div className={styles.deets}>
         <div className={styles.title}>Brightsome</div>
         <div className={styles.artist}>The new full-length album by Olis</div>
-
-        <ListenNowButton
-          onClick={() =>
-            listenLinksPageStore.showPlatformChoiceDialog("listen-now-button")
-          }
-        />
-        {/* <ListenOnSpotifyButton
-          isNavigatingTo={isNavigatingTo}
-          onLinkClick={handleLinkClick}
-          songLink={songLink}
-        />
-
-        <ListenOnYouTubeButton
-          isNavigatingTo={isNavigatingTo}
-          onLinkClick={handleLinkClick}
-        /> */}
       </div>
 
+      <ListenNowButton
+        onClick={() =>
+          listenLinksPageStore.showPlatformChoiceDialog("listen-now-button")
+        }
+      />
       <SocialMediaLinks />
     </div>
   );

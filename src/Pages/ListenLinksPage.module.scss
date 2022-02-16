@@ -1,0 +1,20 @@
+.page {
+  color: white;
+  padding: 1rem;
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.45) 100%
+    ),
+    url("/Images/avatar-crop2-1200-fair.jpg");
+  background-position: 50% 10%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 1rem auto 0;
+}
