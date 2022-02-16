@@ -14,14 +14,14 @@ class ListenLinksPageStore {
 
   platformNavigatingTo: TPlatform | null = null;
   adName: string | null = null;
-  spotifySongLink: string = URLs.brightsome.radHeroineSpotify;
+  spotifySongLink: string = URLs.songs.radHeroineBallet.spotify;
 
   setSpotifySongLink = (adName: string | null) => {
     this.adName = adName;
     this.spotifySongLink =
       adName && adName.toLowerCase().includes("tiny")
-        ? URLs.brightsome.tinyStreetFeelsSpotify
-        : URLs.brightsome.radHeroineSpotify;
+        ? URLs.songs.tinyStreetFeels.spotify
+        : URLs.songs.radHeroineBallet.spotify;
   };
 
   showPlatformChoiceDialog = (from: "cover" | "listen-now-button") => {

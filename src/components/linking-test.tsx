@@ -1,6 +1,5 @@
 import { TPlatform } from "../types/TPlatform";
 import URLs from "../urls";
-import PlatformLogo from "./platform-logos/PlatformLogo";
 import styles from "./SocialMediaLinks.module.scss";
 
 const SocialMediaLinks = ({
@@ -47,7 +46,7 @@ const SocialMediaLinks = ({
       {/* works */}
       {/* <a href={URLs.brightsome.spotifyURI}>#8</a> */}
       {/* works AND PLAYS */}
-      <a href={URLs.brightsome.radHeroineSpotify}>#9</a>
+      <a href={URLs.songs.radHeroineBallet.spotify}>#9</a>
       {/* works */}
       {/* <a href={URLs.brightsome.spotify}>#10</a> */}
       {/* works */}
