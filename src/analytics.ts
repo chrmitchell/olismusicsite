@@ -1,6 +1,6 @@
 import { TSongId } from "./types/TSong";
 import { useEffect } from "react";
-import ReactGA, { OutboundLink } from "react-ga";
+import ReactGA from "react-ga";
 import devLog from "./utils/devLog";
 
 const config: ReactGA.InitializeOptions = {
@@ -9,31 +9,27 @@ const config: ReactGA.InitializeOptions = {
 };
 
 let isInitialized = false;
-let isActive = true;
+const sendEventsDuringDev = false;
+const isLocalEnv =
+  process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test";
 
 const usePageView = () => {
   useEffect(() => {
     const url = window.location.pathname + window.location.search;
-    console.log(`Analytics: Logging page view for ${url}`);
+    devLog(`Analytics: Logging page view for ${url}`);
 
-    // if (
-    //   process.env.NODE_ENV !== "development" &&
-    //   process.env.NODE_ENV === "test"
-    // ) {
-    ReactGA.pageview(url);
-    // }
+    if (isInitialized) {
+      ReactGA.pageview(url);
+    }
   }, []);
 };
 
-const prependDevIfNeeded = (s: string) =>
-  `${
-    process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test"
-      ? "dev-"
-      : ""
-  }${s}`;
+const prependDevIfNeeded = (s: string) => `${isLocalEnv ? "dev-" : ""}${s}`;
 
 const analytics = {
   init: () => {
+    if (isLocalEnv && !sendEventsDuringDev) return;
+
     if (isInitialized === false) {
       const trackingId = process.env.REACT_APP_ANALYTICS_TRACKING_ID;
       if (!trackingId) {
@@ -51,7 +47,6 @@ const analytics = {
   },
 
   logPageView: usePageView,
-  OutboundLink: OutboundLink,
 
   logEvent: (
     category: "listen-links" | "social-links" | "UI" | "warning",
@@ -76,11 +71,13 @@ const analytics = {
       )} / ${action} / ${label}.`
     );
 
-    ReactGA.event({
-      action: prependDevIfNeeded(action),
-      category: prependDevIfNeeded(category),
-      label: label ? prependDevIfNeeded(label) : undefined,
-    });
+    if (isInitialized) {
+      ReactGA.event({
+        action: prependDevIfNeeded(action),
+        category: prependDevIfNeeded(category),
+        label: label ? prependDevIfNeeded(label) : undefined,
+      });
+    }
   },
 
   trackFBEvent: (eventName: "ViewContent", contentName: "spotify") => {
