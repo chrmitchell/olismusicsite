@@ -49,7 +49,12 @@ const analytics = {
   logPageView: usePageView,
 
   logEvent: (
-    category: "listen-links" | "social-links" | "UI" | "warning",
+    category:
+      | "listen-links"
+      | "social-links"
+      | "UI"
+      | "warning"
+      | "inline-play",
     action:
       | "chose-spotify"
       | "chose-youtube"
@@ -62,7 +67,8 @@ const analytics = {
       | "opened-platforms-menu"
       | "closed-platforms-menu"
       | "closed-platforms-menu-without-listening"
-      | "redirect-from-unmatched-route",
+      | "redirect-from-unmatched-route"
+      | "youtube-inline-play",
     label?: TSongId | string,
     value?: number
   ) => {
