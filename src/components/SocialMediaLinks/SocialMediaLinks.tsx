@@ -1,33 +1,27 @@
 import classNames from "classnames";
+import { observer } from "mobx-react";
 import listenLinksPageStore from "../../Pages/listenLinksPageStore";
 import { TPlatform } from "../../types/TPlatform";
 import SocialMediaLink from "./SocialMediaLink/SocialMediaLink";
 import styles from "./SocialMediaLinks.module.scss";
 
-const platforms: TPlatform[] = [
-  // "Spotify",
-  "Instagram",
-  // "YouTube",
-  "Facebook",
-];
+const socialPlatforms: TPlatform[] = ["Instagram", "Facebook"];
 
-const SocialMediaLinks = () => (
+const SocialMediaLinks = observer(() => (
   <div
     className={classNames(
       styles.links,
       !!listenLinksPageStore.platformNavigatingTo && styles.isDisabled
     )}
   >
-    {platforms.map((platform) => (
+    {socialPlatforms.map((platform) => (
       <SocialMediaLink
         key={platform}
         platform={platform}
-        onClick={() =>
-          listenLinksPageStore.handleListenLinkClick(platform, "icon")
-        }
+        onClick={() => listenLinksPageStore.handleSocialLinkClick(platform)}
       />
     ))}
   </div>
-);
+));
 
 export default SocialMediaLinks;

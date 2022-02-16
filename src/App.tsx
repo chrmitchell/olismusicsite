@@ -16,10 +16,11 @@ const App = () => (
 );
 
 const UnmatchedRoute = () => {
-  analytics.logEvent("Redirect from unmatched route", {
-    category: "Unmatched Route",
-    label: window.location.pathname,
-  });
+  analytics.logEvent(
+    "warning",
+    "redirect-from-unmatched-route",
+    window.location.pathname
+  );
 
   return <Navigate to="/" />;
 };

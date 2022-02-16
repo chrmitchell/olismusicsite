@@ -14,10 +14,7 @@ const Tray = observer(() => (
           className={styles.closeButton}
           onClick={() => {
             trayStore.close();
-            analytics.logEvent("closed-choice-tray", {
-              category: "closed-choice-tray",
-              label: "closed-choice-tray",
-            });
+            analytics.logEvent("UI", "closed-platforms-menu");
           }}
         >
           &#10005;

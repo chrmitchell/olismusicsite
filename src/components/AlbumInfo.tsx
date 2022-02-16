@@ -16,11 +16,7 @@ const AlbumInfo = observer(() => {
   const adName: string | null = params["utm_content"];
 
   useEffect(() => {
-    listenLinksPageStore.spotifySongLink =
-      adName && adName.toLowerCase().includes("tiny")
-        ? URLs.brightsome.tinyStreetFeelsSpotify
-        : URLs.brightsome.radHeroineSpotify;
-    listenLinksPageStore.adName = adName;
+    listenLinksPageStore.setSpotifySongLink(adName);
   }, [adName]);
 
   return (
@@ -39,7 +35,6 @@ const AlbumInfo = observer(() => {
           listenLinksPageStore.showPlatformChoiceDialog("listen-now-button")
         }
       />
-      <SocialMediaLinks />
     </div>
   );
 });

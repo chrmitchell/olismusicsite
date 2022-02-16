@@ -1,4 +1,5 @@
 import { TPlatform } from "./types/TPlatform";
+import { TSongId } from "./types/TSong";
 
 const socialUrls: Record<TPlatform, string> = {
   Instagram: "https://www.instagram.com/olis.music/",
@@ -15,6 +16,17 @@ const socialUrls: Record<TPlatform, string> = {
   Bandcamp: "https://olis.bandcamp.com/",
 };
 
+const songUrls: Record<TSongId, { spotify: string }> = {
+  radHeroineBallet: {
+    spotify:
+      "https://open.spotify.com/track/2qYK9RccG9DsBQgEl5tkdy?si=070acbfefe1340ff",
+  },
+  tinyStreetFeels: {
+    spotify:
+      "https://open.spotify.com/track/1iXCvX12YqM9LbNBwytQy3?si=aa3cb6ddd6bb4107",
+  },
+};
+
 const URLs = {
   brightsome: {
     // spotify:
@@ -29,6 +41,7 @@ const URLs = {
     tinyStreetFeelsSpotify:
       "https://open.spotify.com/track/1iXCvX12YqM9LbNBwytQy3?si=aa3cb6ddd6bb4107",
   },
+  songs: songUrls,
   olis: {
     social: socialUrls,
   },

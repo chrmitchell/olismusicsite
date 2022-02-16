@@ -1,3 +1,4 @@
+import { TSongId } from "./types/TSong";
 import { useEffect } from "react";
 import ReactGA, { OutboundLink } from "react-ga";
 import devLog from "./utils/devLog";
@@ -51,19 +52,34 @@ const analytics = {
 
   logPageView: usePageView,
   OutboundLink: OutboundLink,
+
   logEvent: (
-    eventName: string,
-    options: { category: string; label: string }
+    category: "listen-links" | "social-links" | "UI" | "warning",
+    action:
+      | "chose-spotify"
+      | "chose-youtube"
+      | "chose-soundcloud"
+      | "chose-bandcamp"
+      | "clicked-instagram-icon"
+      | "clicked-facebook-icon"
+      | "clicked-cover"
+      | "clicked-listen-now"
+      | "opened-platforms-menu"
+      | "closed-platforms-menu"
+      | "closed-platforms-menu-without-listening"
+      | "redirect-from-unmatched-route",
+    label?: TSongId | string
   ) => {
     devLog(
-      `Analytics: Logging event ${prependDevIfNeeded(eventName)}.`,
-      options
+      `Analytics: Logging event ${prependDevIfNeeded(
+        category
+      )} / ${action} / ${label}.`
     );
 
     ReactGA.event({
-      action: prependDevIfNeeded(eventName),
-      category: prependDevIfNeeded(options.category),
-      label: prependDevIfNeeded(options.label),
+      action: prependDevIfNeeded(action),
+      category: prependDevIfNeeded(category),
+      label: label ? prependDevIfNeeded(label) : undefined,
     });
   },
 

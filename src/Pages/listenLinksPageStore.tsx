@@ -3,7 +3,7 @@ import { makeAutoObservable } from "mobx";
 import trayStore from "../components/Tray/trayStore";
 import PlatformChoiceDialog from "../components/platform-choice-dialog/PlatformChoiceDialog";
 import URLs from "../urls";
-import getSongNameFromSpotifyUrl from "../utils/getSongNameFromSpotifyURL";
+import getSongIdFromSpotifyUrl from "../utils/getSongIdFromSpotifyURL";
 import devLog from "../utils/devLog";
 import analytics from "../analytics";
 
@@ -16,12 +16,36 @@ class ListenLinksPageStore {
   adName: string | null = null;
   spotifySongLink: string = URLs.brightsome.radHeroineSpotify;
 
+  setSpotifySongLink = (adName: string | null) => {
+    this.adName = adName;
+    this.spotifySongLink =
+      adName && adName.toLowerCase().includes("tiny")
+        ? URLs.brightsome.tinyStreetFeelsSpotify
+        : URLs.brightsome.radHeroineSpotify;
+  };
+
   showPlatformChoiceDialog = (from: "cover" | "listen-now-button") => {
-    analytics.logEvent("opened-choice-tray", {
-      category: "opened-choice-tray",
-      label: `from-${from}`,
-    });
+    analytics.logEvent("UI", "opened-platforms-menu", `from-${from}`);
     trayStore.showContents(<PlatformChoiceDialog />);
+  };
+
+  handleSocialLinkClick = (destination: TPlatform) => {
+    if (!!this.platformNavigatingTo) return;
+    if (destination === "Facebook")
+      analytics.logEvent("social-links", "clicked-facebook-icon");
+    else if (destination === "Instagram")
+      analytics.logEvent("social-links", "clicked-instagram-icon");
+
+    listenLinksPageStore.platformNavigatingTo = destination;
+    this.setNavigatingTo(destination);
+  };
+
+  private setNavigatingTo = (destination: TPlatform) => {
+    this.platformNavigatingTo = destination;
+
+    setTimeout(() => {
+      this.platformNavigatingTo = null;
+    }, 2000);
   };
 
   handleListenLinkClick = (
@@ -31,38 +55,21 @@ class ListenLinksPageStore {
     if (!!this.platformNavigatingTo) return;
 
     if (destination === "Spotify") {
-      const songName = getSongNameFromSpotifyUrl(this.spotifySongLink);
+      const songName = getSongIdFromSpotifyUrl(this.spotifySongLink);
       devLog(this.spotifySongLink, songName);
-
       analytics.trackFBEvent("ViewContent", "spotify");
 
-      analytics.logEvent(`spotify-listen`, {
-        category: songName || `unknown-from-${this.adName}`,
-        label: songName || `unknown-from-${this.adName}`,
-      });
-
       analytics.logEvent(
-        `clicked-${destination.toLowerCase()}-${typeClicked}`,
-        {
-          category: "clicked",
-          label: destination.toLowerCase(),
-        }
+        "listen-links",
+        "chose-spotify",
+        songName || `unknown-from-${this.adName}`
       );
     } else {
-      analytics.logEvent(
-        `clicked-${destination.toLowerCase()}-${typeClicked}`,
-        {
-          category: "clicked",
-          label: destination.toLowerCase(),
-        }
-      );
+      // @ts-ignore
+      analytics.logEvent("listen-links", `chose-${destination.toLowerCase()}`);
     }
 
-    listenLinksPageStore.platformNavigatingTo = destination;
-
-    setTimeout(() => {
-      listenLinksPageStore.platformNavigatingTo = null;
-    }, 2000);
+    this.setNavigatingTo(destination);
   };
 }
 
