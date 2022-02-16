@@ -10,13 +10,7 @@ const Tray = observer(() => (
   >
     <div className={classNames(styles.tray, trayStore.isOpen && styles.isOpen)}>
       {trayStore.currentContents && (
-        <div
-          className={styles.closeButton}
-          onClick={() => {
-            trayStore.close();
-            analytics.logEvent("UI", "closed-platforms-menu");
-          }}
-        >
+        <div className={styles.closeButton} onClick={trayStore.close}>
           &#10005;
         </div>
       )}

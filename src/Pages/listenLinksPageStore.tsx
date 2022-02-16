@@ -16,6 +16,8 @@ class ListenLinksPageStore {
   adName: string | null = null;
   spotifySongLink: string = URLs.songs.radHeroineBallet.spotify;
 
+  listenLinksClicked = 0;
+
   setSpotifySongLink = (adName: string | null) => {
     this.adName = adName;
     this.spotifySongLink =
@@ -26,7 +28,16 @@ class ListenLinksPageStore {
 
   showPlatformChoiceDialog = (from: "cover" | "listen-now-button") => {
     analytics.logEvent("UI", "opened-platforms-menu", `from-${from}`);
-    trayStore.showContents(<PlatformChoiceDialog />);
+    trayStore.showContents(<PlatformChoiceDialog />, this.onDialogClose);
+  };
+
+  onDialogClose = () => {
+    analytics.logEvent(
+      "UI",
+      "closed-platforms-menu",
+      this.listenLinksClicked > 0 ? "after-listening" : "without-listening",
+      this.listenLinksClicked
+    );
   };
 
   handleSocialLinkClick = (destination: TPlatform) => {
@@ -48,11 +59,10 @@ class ListenLinksPageStore {
     }, 2000);
   };
 
-  handleListenLinkClick = (
-    destination: TPlatform,
-    typeClicked: "button" | "icon" | "cover"
-  ) => {
+  handleListenLinkClick = (destination: TPlatform) => {
     if (!!this.platformNavigatingTo) return;
+
+    this.listenLinksClicked = this.listenLinksClicked + 1;
 
     if (destination === "Spotify") {
       const songName = getSongIdFromSpotifyUrl(this.spotifySongLink);

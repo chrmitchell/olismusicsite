@@ -16,7 +16,7 @@ const isLocalEnv =
 const usePageView = () => {
   useEffect(() => {
     const url = window.location.pathname + window.location.search;
-    devLog(`Analytics: Logging page view for ${url}`);
+    devLog(`Analytics - Logging page view for ${url}`);
 
     if (isInitialized) {
       ReactGA.pageview(url);
@@ -36,7 +36,7 @@ const analytics = {
         console.error(`Analytics id unavailable`, trackingId);
       } else {
         ReactGA.initialize(trackingId, config);
-        devLog("analytics intialized");
+        devLog("Analytics - intialized");
         isInitialized = true;
       }
     } else {
@@ -63,12 +63,13 @@ const analytics = {
       | "closed-platforms-menu"
       | "closed-platforms-menu-without-listening"
       | "redirect-from-unmatched-route",
-    label?: TSongId | string
+    label?: TSongId | string,
+    value?: number
   ) => {
     devLog(
-      `Analytics: Logging event ${prependDevIfNeeded(
-        category
-      )} / ${action} / ${label}.`
+      `Analytics - Logging event: ${prependDevIfNeeded(category)} / ${action}${
+        label !== undefined ? ` / ${label}` : ""
+      }${value !== undefined ? ` / ${value}` : ""}`
     );
 
     if (isInitialized) {
@@ -76,6 +77,7 @@ const analytics = {
         action: prependDevIfNeeded(action),
         category: prependDevIfNeeded(category),
         label: label ? prependDevIfNeeded(label) : undefined,
+        value: value ?? undefined,
       });
     }
   },

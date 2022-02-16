@@ -21,7 +21,7 @@ const socialUrls: Record<TPlatform, string> = {
   // soundCloud: "https://soundcloud.com/olismusic?id=1502701",
   // pandora: "https://www.pandora.com/artist/olis/ARb4d5VfXnvpmZc",
   Facebook: "https://www.facebook.com/Olisforears",
-  Soundcloud: "https://soundcloud.com/olismusic?id=1502701",
+  Soundcloud: "https://soundcloud.com/olismusic/sets/brightsome-1",
   Bandcamp: "https://olis.bandcamp.com/",
 };
 

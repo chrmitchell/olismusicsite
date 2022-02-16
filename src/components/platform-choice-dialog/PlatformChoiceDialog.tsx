@@ -17,9 +17,7 @@ const PlatformChoiceDialog = () => (
           key={platform}
           target="_blank"
           rel="noreferrer"
-          onClick={() =>
-            listenLinksPageStore.handleListenLinkClick(platform, "button")
-          }
+          onClick={() => listenLinksPageStore.handleListenLinkClick(platform)}
           href={
             platform === "Spotify"
               ? listenLinksPageStore.spotifySongLink
