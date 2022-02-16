@@ -2,6 +2,7 @@ import listenLinksPageStore from "../../Pages/listenLinksPageStore";
 import { TPlatform } from "../../types/TPlatform";
 import URLs from "../../urls";
 import PlatformLogo from "../platform-logos/PlatformLogo";
+import SpotifyPlayer from "../spotify-player/SpotifyPlayer";
 import YouTubePlayer from "../youtube-player/YouTubePlayer";
 import styles from "./PlatformChoiceDialog.module.scss";
 
@@ -31,11 +32,12 @@ const PlatformChoiceDialog = () => (
       ))}
     </div>
 
-    <YouTubePlayer
+    {/* <SpotifyPlayer /> */}
+    {/* <YouTubePlayer
       onClick={() => {
         console.log("tyeah");
       }}
-    />
+    /> */}
 
     {/* <SoundcloudPlayer /> */}
   </div>
