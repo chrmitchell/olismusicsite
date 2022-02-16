@@ -46,8 +46,9 @@ const YouTubePlayer = ({ onClick }: { onClick: () => void }) => {
         style={{ width: "100%" }}
         width="560"
         height="315"
-        src="https://www.youtube.com/embed/videoseries?list=PLN3CphWGoGqG9F6Ork2DTLTMHCvtyjtsd"
-        title="YouTube video player"
+        // src="https://www.youtube.com/embed/videoseries?list=PLN3CphWGoGqG9F6Ork2DTLTMHCvtyjtsd"
+        src="https://www.youtube.com/embed/Fl_1fCurgKM"
+        title="Brightsome by Olis - YouTube video player"
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen

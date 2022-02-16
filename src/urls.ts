@@ -32,6 +32,7 @@ const URLs = {
     // spotifyDistrokid:
     // "https://open.spotify.com/album/5p1jaTHTdPAs2GBZP4OQ4Y?referral=labelaffiliate&utm_source=1011liP4oE3g&utm_medium=Indie_Distrokid&utm_campaign=labelaffiliate",
     // spotifyURI: "spotify:album:5p1jaTHTdPAs2GBZP4OQ4Y",
+    youTubeFullAlbumVid: "https://youtu.be/Fl_1fCurgKM",
     youTubePlaylist:
       "https://www.youtube.com/watch?v=PqrBwgQHWCk&list=PLN3CphWGoGqG9F6Ork2DTLTMHCvtyjtsd",
   },
