@@ -1,5 +1,9 @@
+$enter-anim-duration: 0.3s;
+$exit-anim-duration: 0.15s;
+
 .wrapper {
   position: fixed;
+  color: white;
   top: 0;
   left: 0;
   right: 0;
@@ -8,29 +12,37 @@
   padding: 0;
   pointer-events: none;
   z-index: 100;
+  background: black;
+
+  overflow-y: auto;
+
+  transform: translate3d(0, 100%, 0);
+  transition: transform $exit-anim-duration ease-out;
 
   &.isOpen {
     pointer-events: all;
+    transform: translate3d(0, 0, 0);
+    transition: transform $enter-anim-duration ease-out;
   }
 }
 
 .tray {
-  position: absolute;
-  top: 0;
-  background: rgba(0, 0, 0, 1);
-  width: 100%;
-  height: 100%;
-  overflow-y: auto;
-  margin: 0 auto;
-  color: white;
-  transform: translate3d(0, 100%, 0);
-  transition: transform 0.15s ease-out;
+  // position: absolute;
+  // top: 0;
+  // background: pink;
+  // width: 100%;
+  // height: 100%;
+  // overflow-y: auto;
+  // margin: 0 auto;
+  // color: white;
+  // transform: translate3d(0, 100%, 0);
+  // transition: transform 0.15s ease-out;
 
-  &.isOpen {
-    transform: translate3d(0, 0, 0);
-    pointer-events: all;
-    transition: transform 0.25s ease-out;
-  }
+  // &.isOpen {
+  //   transform: translate3d(0, 0, 0);
+  //   pointer-events: all;
+  //   transition: transform 0.25s ease-out;
+  // }
 }
 
 .closeButton {

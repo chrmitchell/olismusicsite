@@ -30,7 +30,7 @@ const PlatformChoiceDialog = () => (
         </a>
       ))}
     </div>
-    <SoundcloudPlayer />
+    {/* <SoundcloudPlayer /> */}
   </div>
 );
 
