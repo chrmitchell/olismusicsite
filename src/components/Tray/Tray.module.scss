@@ -8,8 +8,6 @@
   padding: 0;
   pointer-events: none;
   z-index: 100;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
 
   &.isOpen {
     pointer-events: all;
@@ -17,6 +15,8 @@
 }
 
 .tray {
+  position: absolute;
+  top: 0;
   background: rgba(0, 0, 0, 1);
   width: 100%;
   height: 100%;
