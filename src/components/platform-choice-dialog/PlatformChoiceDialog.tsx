@@ -2,6 +2,7 @@ import listenLinksPageStore from "../../Pages/listenLinksPageStore";
 import { TPlatform } from "../../types/TPlatform";
 import URLs from "../../urls";
 import PlatformLogo from "../platform-logos/PlatformLogo";
+import SoundcloudPlayer from "../soundcloud-player/SoundcloudPlayer";
 import styles from "./PlatformChoiceDialog.module.scss";
 
 const platforms: TPlatform[] = ["Spotify", "YouTube", "Soundcloud", "Bandcamp"];
@@ -29,6 +30,7 @@ const PlatformChoiceDialog = () => (
         </a>
       ))}
     </div>
+    <SoundcloudPlayer />
   </div>
 );
 
