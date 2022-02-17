@@ -1,11 +1,8 @@
 import { useRef, useState } from "react";
-import analytics from "../../analytics";
-import { TSongId } from "../../types/TSong";
 import devLog from "../../utils/devLog";
 import isTouchDevice from "../../utils/isTouchDevice";
-import styles from "./YouTubePlayer.module.scss";
 
-const YouTubePlayer = ({ onClick }: { onClick: () => void }) => {
+const YouTubePlayer = ({ onPlay }: { onPlay: () => void }) => {
   const [hasPlayed, setHasPlayed] = useState(false);
   const countingRef = useRef<number | null>(null);
 
@@ -13,7 +10,7 @@ const YouTubePlayer = ({ onClick }: { onClick: () => void }) => {
     devLog("start");
     countingRef.current = setTimeout(() => {
       devLog("boom", countingRef.current);
-      if (countingRef.current) onPlay();
+      if (countingRef.current) handleVideoPlayed();
     }, 2000) as unknown as number;
   };
 
@@ -25,21 +22,16 @@ const YouTubePlayer = ({ onClick }: { onClick: () => void }) => {
     }
   };
 
-  const onPlay = () => {
+  const handleVideoPlayed = () => {
     if (!hasPlayed) {
-      devLog("played");
       setHasPlayed(true);
-      analytics.logEvent(
-        "inline-play",
-        "youtube-inline-play",
-        isTouchDevice() ? "with-touch" : "without-touch"
-      );
+      onPlay();
     }
   };
 
   return (
     <div
-      onMouseEnter={isTouchDevice() ? onPlay : onMouseEnter}
+      onMouseEnter={isTouchDevice() ? handleVideoPlayed : onMouseEnter}
       onMouseLeave={isTouchDevice() ? undefined : onMouseExit}
     >
       <iframe
