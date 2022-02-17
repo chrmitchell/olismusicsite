@@ -7,15 +7,12 @@ const YouTubePlayer = ({ onPlay }: { onPlay: () => void }) => {
   const countingRef = useRef<number | null>(null);
 
   const onMouseEnter = () => {
-    devLog("start");
     countingRef.current = setTimeout(() => {
-      devLog("boom", countingRef.current);
       if (countingRef.current) handleVideoPlayed();
     }, 2000) as unknown as number;
   };
 
   const onMouseExit = () => {
-    devLog("stop");
     if (countingRef.current) {
       clearTimeout(countingRef.current);
       countingRef.current = null;
