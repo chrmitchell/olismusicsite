@@ -16,6 +16,8 @@ const PlatformChoiceDialog = () => {
       "youtube-inline-play",
       isTouchDevice() ? "with-touch" : "without-touch"
     );
+    analytics.trackFBConversion("ViewContent", "YouTube");
+    analytics.trackFBCustomEvent("listened-on-youtube");
   };
 
   return (

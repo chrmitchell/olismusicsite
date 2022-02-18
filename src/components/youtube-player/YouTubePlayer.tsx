@@ -1,6 +1,9 @@
 import { useRef, useState } from "react";
-import devLog from "../../utils/devLog";
 import isTouchDevice from "../../utils/isTouchDevice";
+
+const config = {
+  delayBeforeCountingAsClickWhenHoveringMouse: 3000,
+};
 
 const YouTubePlayer = ({ onPlay }: { onPlay: () => void }) => {
   const [hasPlayed, setHasPlayed] = useState(false);
@@ -9,7 +12,7 @@ const YouTubePlayer = ({ onPlay }: { onPlay: () => void }) => {
   const onMouseEnter = () => {
     countingRef.current = setTimeout(() => {
       if (countingRef.current) handleVideoPlayed();
-    }, 2000) as unknown as number;
+    }, config.delayBeforeCountingAsClickWhenHoveringMouse) as unknown as number;
   };
 
   const onMouseExit = () => {
@@ -30,6 +33,9 @@ const YouTubePlayer = ({ onPlay }: { onPlay: () => void }) => {
     <div
       onMouseEnter={isTouchDevice() ? handleVideoPlayed : onMouseEnter}
       onMouseLeave={isTouchDevice() ? undefined : onMouseExit}
+      onMouseDown={() => {
+        console.log("sheep");
+      }}
     >
       <iframe
         style={{ width: "100%" }}

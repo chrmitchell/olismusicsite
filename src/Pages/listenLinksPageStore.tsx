@@ -67,7 +67,9 @@ class ListenLinksPageStore {
     if (destination === "Spotify") {
       const songName = getSongIdFromSpotifyUrl(this.spotifySongLink);
       devLog(this.spotifySongLink, songName);
-      analytics.trackFBEvent("ViewContent", "spotify");
+
+      analytics.trackFBConversion("ViewContent", destination);
+      analytics.trackFBCustomEvent("listened-on-spotify");
 
       analytics.logEvent(
         "listen-links",
@@ -75,7 +77,10 @@ class ListenLinksPageStore {
         songName || `unknown-from-${this.adName}`
       );
     } else {
-      // @ts-ignore
+      analytics.trackFBConversion("ViewContent", destination);
+      //@ts-ignore
+      analytics.trackFBCustomEvent(`listened-on-${destination.toLowerCase()}`);
+      //@ts-ignore
       analytics.logEvent("listen-links", `chose-${destination.toLowerCase()}`);
     }
 

@@ -1,3 +1,4 @@
+import { TPlatform } from "./types/TPlatform";
 import { TSongId } from "./types/TSong";
 import { useEffect } from "react";
 import ReactGA from "react-ga";
@@ -88,8 +89,26 @@ const analytics = {
     }
   },
 
-  trackFBEvent: (eventName: "ViewContent", contentName: "spotify") => {
-    fbq("track", eventName, { content_name: contentName });
+  trackFBConversion: (eventName: "ViewContent", destination: TPlatform) => {
+    if (isInitialized) {
+      fbq("track", eventName, { content_name: destination });
+    } else {
+      devLog(`fb: ViewContent / content_name: ${destination}`);
+    }
+  },
+
+  trackFBCustomEvent: (
+    eventName:
+      | "listened-on-spotify"
+      | "listened-on-youtube"
+      | "listened-on-bandcamp"
+      | "listened-on-soundcloud"
+  ) => {
+    if (isInitialized) {
+      fbq("trackCustom", eventName);
+    } else {
+      devLog(`fb: customEvent / ${eventName}`);
+    }
   },
 };
 
