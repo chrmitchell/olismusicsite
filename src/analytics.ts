@@ -59,7 +59,8 @@ const analytics = {
       | "inline-play",
 
     action:
-      | "chose-spotify"
+      | "chose-spotify-first"
+      | "chose-spotify-nonfirst"
       | "chose-youtube"
       | "chose-soundcloud"
       | "chose-bandcamp"

@@ -62,8 +62,6 @@ class ListenLinksPageStore {
   handleListenLinkClick = (destination: TPlatform) => {
     if (!!this.platformNavigatingTo) return;
 
-    this.listenLinksClicked = this.listenLinksClicked + 1;
-
     if (destination === "Spotify") {
       const songName = getSongIdFromSpotifyUrl(this.spotifySongLink);
       devLog(this.spotifySongLink, songName);
@@ -73,7 +71,9 @@ class ListenLinksPageStore {
 
       analytics.logEvent(
         "listen-links",
-        "chose-spotify",
+        this.listenLinksClicked === 0
+          ? "chose-spotify-first"
+          : "chose-spotify-nonfirst",
         songName || `unknown-from-${this.adName}`
       );
     } else {
@@ -84,6 +84,7 @@ class ListenLinksPageStore {
       analytics.logEvent("listen-links", `chose-${destination.toLowerCase()}`);
     }
 
+    this.listenLinksClicked = this.listenLinksClicked + 1;
     this.setNavigatingTo(destination);
   };
 }
