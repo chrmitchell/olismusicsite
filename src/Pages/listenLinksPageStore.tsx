@@ -80,8 +80,14 @@ class ListenLinksPageStore {
       analytics.trackFBConversion("ViewContent", destination);
       //@ts-ignore
       analytics.trackFBCustomEvent(`listened-on-${destination.toLowerCase()}`);
-      //@ts-ignore
-      analytics.logEvent("listen-links", `chose-${destination.toLowerCase()}`);
+      analytics.logEvent(
+        "listen-links",
+        //@ts-ignore
+        `chose-${destination.toLowerCase()}`,
+        `chose-${destination.toLowerCase()}-${
+          this.listenLinksClicked === 0 ? "first" : "nonfirst"
+        }`
+      );
     }
 
     this.listenLinksClicked = this.listenLinksClicked + 1;
