@@ -11,8 +11,8 @@ const AlbumInfo = observer(() => {
 
   let params = useQueryParams().object;
   const adName: string | null = params["utm_content"];
-  const adSetName: string | null = params["utm_campaign"];
-  const campaignName: string | null = params["utm_source"];
+  const campaignName: string | null = params["utm_campaign"];
+  const adSetName: string | null = params["utm_source"];
   const placement: string | null = params["utm_medium"];
 
   useEffect(() => {
