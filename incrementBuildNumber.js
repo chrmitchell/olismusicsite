@@ -1,6 +1,6 @@
 var fs = require("fs");
 
-const buildInfo = require("./buildInfo.json");
+const buildInfo = require("./src/buildInfo.json");
 
 const incrementBuildNumber = () => {
   buildInfo.buildNumber++;
