@@ -3,7 +3,7 @@ import analytics from "../analytics";
 const translation = {
   detectLanguage: () => {
     const preferredLanguages = navigator.languages;
-    console.log(preferredLanguages);
+
     if (!preferredLanguages) {
       analytics.logEvent(
         "internationalization",
