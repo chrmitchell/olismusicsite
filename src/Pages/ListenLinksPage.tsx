@@ -3,9 +3,15 @@ import { Outlet } from "react-router-dom";
 import analytics from "../analytics";
 import styles from "./ListenLinksPage.module.scss";
 import SocialMediaLinks from "../components/SocialMediaLinks/SocialMediaLinks";
+import { useEffect } from "react";
+import internationalization from "../utils/internationalization";
 
 const HomePage = () => {
   analytics.logPageView();
+
+  useEffect(() => {
+    internationalization.detectLanguage();
+  }, []);
 
   return (
     <div className={styles.page}>

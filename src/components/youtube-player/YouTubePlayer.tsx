@@ -33,9 +33,6 @@ const YouTubePlayer = ({ onPlay }: { onPlay: () => void }) => {
     <div
       onMouseEnter={isTouchDevice() ? handleVideoPlayed : onMouseEnter}
       onMouseLeave={isTouchDevice() ? undefined : onMouseExit}
-      onMouseDown={() => {
-        console.log("sheep");
-      }}
     >
       <iframe
         style={{ width: "100%" }}

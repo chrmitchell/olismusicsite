@@ -55,7 +55,9 @@ const analytics = {
       | "social-links"
       | "UI"
       | "warning"
+      | "internationalization"
       | "inline-play",
+
     action:
       | "chose-spotify"
       | "chose-youtube"
@@ -69,7 +71,9 @@ const analytics = {
       | "closed-platforms-menu"
       | "closed-platforms-menu-without-listening"
       | "redirect-from-unmatched-route"
-      | "youtube-inline-play",
+      | "youtube-inline-play"
+      | "language-detection-success"
+      | "language-detection-fail",
     label?: TSongId | string,
     value?: number
   ) => {
